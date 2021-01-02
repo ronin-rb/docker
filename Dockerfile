@@ -6,10 +6,15 @@ ENV LANG=${LANG}
 ENV LANGUAGE=${LANG}
 ENV LC_ALL=${LANG}
 
-ARG TZ=GMT
+ARG TZ=UTC
 ENV TZ=${TZ}
 
 RUN apt-get update -qq
+
+RUN apt-get install -qq -y locales && \
+    locale-gen "${LANG%.*}" "$LANG" && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale
 
 RUN apt-get install -qq -y tzdata && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
