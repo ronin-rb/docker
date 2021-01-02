@@ -1,6 +1,8 @@
 ARG UBUNTU_VERSION=20.04
 FROM ubuntu:${UBUNTU_VERSION}
 
+LABEL maintainer="postmodern.mod3@gmail.com"
+
 ARG LANG=en_US.UTF-8
 ENV LANG=${LANG}
 ENV LANGUAGE=${LANG}
