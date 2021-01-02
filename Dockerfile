@@ -1,7 +1,18 @@
 ARG UBUNTU_VERSION=20.04
 FROM ubuntu:${UBUNTU_VERSION}
 
+ARG LANG=en_US.UTF-8
+ENV LANG=${LANG}
+
+ARG TZ=GMT
+ENV TZ=${TZ}
+
 RUN apt-get update -qq
+
+RUN apt-get install -qq -y tzdata && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    dpkg-reconfigure --frontend=noninteractive tzdata
 
 # Re-add common core utils
 RUN apt-get install -qq -y tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git
@@ -23,8 +34,5 @@ RUN chown ronin:ronin /home/ronin/.sudo_as_admin_successful
 
 USER ronin
 WORKDIR /home/ronin
-
-ARG LANG=en_US.UTF-8
-ENV LANG=${LANG}
 
 CMD ["/bin/bash"]
