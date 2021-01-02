@@ -3,6 +3,9 @@ FROM ubuntu:${UBUNTU_VERSION}
 
 RUN apt-get update -qq
 
+# Re-add common core utils
+RUN apt-get install -qq -y tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git
+
 # Install external dependencies
 RUN apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev
 
