@@ -9,7 +9,7 @@ pre-installed.
 docker build -t ronin .
 ```
 
-## Run
+## Run (with home-dir)
 
 ```shell
 docker run -it --mount type=bind,source="$HOME",target=/home/ubuntu ronin:latest
