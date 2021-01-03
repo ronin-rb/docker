@@ -23,14 +23,14 @@ RUN apt-get install -qq -y tzdata && \
     echo $TZ > /etc/timezone && \
     dpkg-reconfigure --frontend=noninteractive tzdata
 
-# Re-add common core utils
-RUN apt-get install -qq -y tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git
-
 # Install external dependencies
 RUN apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev
 
 # Install ronin
 RUN gem install ronin
+
+# Re-add common core utils
+RUN apt-get install -qq -y tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git
 
 RUN useradd -m -s /bin/bash ronin && \
     apt-get install -qq -y sudo && \
