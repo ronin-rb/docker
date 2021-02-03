@@ -15,4 +15,11 @@ docker build -t ronin .
 docker run -it --mount type=bind,source="$HOME",target=/home/ubuntu ronin:latest
 ```
 
+## Contact
+
+[Slack](https://ronin-rb.slack.com) |
+[Discord](https://discord.gg/6WAb3PsVX9) |
+[Twitter](https://twitter.com/ronin_rb) |
+[IRC](https://ronin-rb.dev/irc/)
+
 [ronin]: https://ronin-rb.dev/
