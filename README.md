@@ -14,10 +14,16 @@ pre-installed.
 make build
 ```
 
-## Run (with home-dir)
+## Run
 
 ```shell
-docker run -it --mount type=bind,source="$HOME",target=/home/ubuntu ronin
+docker run -it ronin:lab
+```
+
+With your home-dir mounted:
+
+```shell
+docker run -it --mount type=bind,source="$HOME",target=/home/ubuntu ronin:lab
 ```
 
 ## Contact
