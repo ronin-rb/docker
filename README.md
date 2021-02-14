@@ -6,7 +6,8 @@ pre-installed.
 ## Images
 
 * [ronin:ubuntu] - a base ubuntu 20.04 image with ronin gems installed.
-* [ronin:lab] - Like `ronin:ubuntu` but with additional tools installed.
+* [ronin:lab] - like `ronin:ubuntu` but with additional tools installed.
+* [ronin:latest][ronin:lab] - alias for `ronin:lab`.
 
 ## Build
 
@@ -17,13 +18,13 @@ make build
 ## Run
 
 ```shell
-docker run -it ronin:lab
+docker run -it ronin
 ```
 
 With your home-dir mounted:
 
 ```shell
-docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
+docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin
 ```
 
 ## Contact
