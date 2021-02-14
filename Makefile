@@ -4,16 +4,16 @@ RONIN_VERSION=1.5.0
 
 all: build
 
-build: ubuntu lab
+build: ronin\:ubuntu ronin\:lab
 
-ubuntu: Dockerfile.ubuntu
+ronin\:ubuntu: Dockerfile.ubuntu
 	docker build	-t ronin:ubuntu \
 			-f Dockerfile.ubuntu \
 			--build-arg UBUNTU_VERSION=$(UBUNTU_VERSION) \
 			--build-arg RONIN_VERSION=$(RONIN_VERSION) \
 			.
 
-lab: ubuntu Dockerfile.lab
+ronin\:lab: ronin\:ubuntu Dockerfile.lab
 	docker build -t ronin:lab -f Dockerfile.lab .
 
 release:
@@ -28,4 +28,4 @@ release:
 clean:
 	docker image rm -f ronin:lab ronin:ubuntu
 
-.PHONY: all build ubuntu lab clean
+.PHONY: all build ronin\:ubuntu ronin\:lab clean
