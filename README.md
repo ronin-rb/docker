@@ -42,5 +42,5 @@ docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin
 
 [ronin]: https://ronin-rb.dev/
 
-[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.ubuntu
-[ronin:lab]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.lab
+[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/main/ronin/Dockerfile.ubuntu
+[ronin:lab]: https://github.com/ronin-rb/docker/blob/main/ronin/Dockerfile.lab
