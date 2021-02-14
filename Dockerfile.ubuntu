@@ -27,4 +27,5 @@ RUN echo $TZ > /etc/timezone && \
 RUN apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev
 
 # Install ronin
-RUN gem install ronin
+ARG RONIN_VERSION=1.5.0
+RUN gem install ronin --version ${RONIN_VERSION}
