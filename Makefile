@@ -1,34 +1,35 @@
 DOCKER_HUB=roninrb
+DOCKER_IMAGE=ronin
 UBUNTU_VERSION=20.04
 RONIN_VERSION=1.5.0
 
 all: build
 
-build: ronin\:ubuntu ronin\:lab
+build: $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab
 
-ronin\:ubuntu: Dockerfile.ubuntu
-	docker build	-t ronin:ubuntu \
+$(DOCKER_IMAGE)\:ubuntu: Dockerfile.ubuntu
+	docker build	-t $(DOCKER_IMAGE):ubuntu \
 			-f Dockerfile.ubuntu \
 			--build-arg UBUNTU_VERSION=$(UBUNTU_VERSION) \
 			--build-arg RONIN_VERSION=$(RONIN_VERSION) \
 			.
 
-ronin\:lab: ronin\:ubuntu Dockerfile.lab
-	docker build -t ronin:lab -f Dockerfile.lab .
+$(DOCKER_IMAGE)\:lab: $(DOCKER_IMAGE)\:ubuntu Dockerfile.lab
+	docker build -t $(DOCKER_IMAGE):lab -f Dockerfile.lab .
 
-ronin\:latest:
-	docker tag ronin:lab ronin:latest
+$(DOCKER_IMAGE)\:latest:
+	docker tag $(DOCKER_IMAGE):lab $(DOCKER_IMAGE):latest
 
 release:
 	docker login
-	docker tag ronin:ubuntu $(DOCKER_HUB)/ronin:ubuntu
-	docker tag ronin:lab $(DOCKER_HUB)/ronin:lab
-	docker tag ronin:latest $(DOCKER_HUB)/ronin:lab
-	docker push $(DOCKER_HUB)/ronin:ubuntu
-	docker push $(DOCKER_HUB)/ronin:lab
-	docker push $(DOCKER_HUB)/ronin:latest
+	docker tag $(DOCKER_IMAGE):ubuntu $(DOCKER_HUB)/$(DOCKER_IMAGE):ubuntu
+	docker tag $(DOCKER_IMAGE):lab $(DOCKER_HUB)/$(DOCKER_IMAGE):lab
+	docker tag $(DOCKER_IMAGE):latest $(DOCKER_HUB)/$(DOCKER_IMAGE):lab
+	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):ubuntu
+	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):lab
+	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):latest
 
 clean:
-	docker image rm -f ronin:lab ronin:ubuntu
+	docker image rm -f $(DOCKER_IMAGE):lab $(DOCKER_IMAGE):ubuntu
 
-.PHONY: all build ronin\:ubuntu ronin\:lab ronin\:latest clean
+.PHONY: all build $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest clean
