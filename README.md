@@ -1,11 +1,11 @@
 # Docker
 
-This repository provides a `Dockerfile` to build an image with [ronin]
+This repository provides `Dockerfile`s to build images with the [ronin] gems
 pre-installed.
 
 ## Images
 
-* `ronin:ubuntu` - A base ubuntu 20.04 image with ronin gems installed.
+* `ronin:ubuntu` - a base ubuntu 20.04 image with ronin gems installed.
 * `ronin:lab` - Like `ronin:ubuntu` but with additional tools installed.
 
 ## Build
