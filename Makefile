@@ -1,5 +1,3 @@
-IMAGES=ubuntu lab
-
 all: build
 
 build: ubuntu lab
