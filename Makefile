@@ -16,6 +16,9 @@ ronin\:ubuntu: Dockerfile.ubuntu
 ronin\:lab: ronin\:ubuntu Dockerfile.lab
 	docker build -t ronin:lab -f Dockerfile.lab .
 
+ronin\:latest:
+	docker tag ronin:lab ronin:latest
+
 release:
 	docker login
 	docker tag ronin:ubuntu $(DOCKER_HUB)/ronin:ubuntu
@@ -28,4 +31,4 @@ release:
 clean:
 	docker image rm -f ronin:lab ronin:ubuntu
 
-.PHONY: all build ronin\:ubuntu ronin\:lab clean
+.PHONY: all build ronin\:ubuntu ronin\:lab ronin\:latest clean
