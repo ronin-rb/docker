@@ -5,7 +5,7 @@ build: ubuntu lab
 ubuntu: Dockerfile.ubuntu
 	docker build -t ronin:ubuntu -f Dockerfile.ubuntu .
 
-lab: Dockerfile.lab
+lab: ubuntu Dockerfile.lab
 	docker build -t ronin:lab -f Dockerfile.lab .
 
 clean:
