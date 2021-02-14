@@ -9,7 +9,6 @@ lab: ubuntu Dockerfile.lab
 	docker build -t ronin:lab -f Dockerfile.lab .
 
 clean:
-	docker image rm -f ronin:lab
-	docker image rm -f ronin:ubuntu
+	docker image rm -f ronin:lab ronin:ubuntu
 
 .PHONY: all build ubuntu lab clean
