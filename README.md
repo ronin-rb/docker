@@ -23,7 +23,7 @@ docker run -it ronin:lab
 With your home-dir mounted:
 
 ```shell
-docker run -it --mount type=bind,source="$HOME",target=/home/ubuntu ronin:lab
+docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 ```
 
 ## Contact
