@@ -30,6 +30,6 @@ release:
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):latest
 
 clean:
-	docker image rm -f $(DOCKER_IMAGE):lab $(DOCKER_IMAGE):ubuntu
+	docker image rm -f $(DOCKER_IMAGE):{lab,ubuntu,latest}
 
 .PHONY: all build $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest clean
