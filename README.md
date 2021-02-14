@@ -5,7 +5,7 @@ pre-installed.
 
 ## Images
 
-* `ronin:ubuntu` - A base ubuntu image with ronin gems installed.
+* `ronin:ubuntu` - A base ubuntu 20.04 image with ronin gems installed.
 * `ronin:lab` - Like `ronin:ubuntu` but with additional tools installed.
 
 ## Build
