@@ -1,11 +1,12 @@
 DOCKER_HUB=roninrb
+UBUNTU_VERSION=20.04
 
 all: build
 
 build: ubuntu lab
 
 ubuntu: Dockerfile.ubuntu
-	docker build -t ronin:ubuntu -f Dockerfile.ubuntu .
+	docker build -t ronin:ubuntu -f Dockerfile.ubuntu --build-arg UBUNTU_VERSION=$(UBUNTU_VERSION) .
 
 lab: ubuntu Dockerfile.lab
 	docker build -t ronin:lab -f Dockerfile.lab .
