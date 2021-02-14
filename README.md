@@ -5,7 +5,7 @@ pre-installed.
 
 ## Images
 
-* [ronin:ubuntu] - a base ubuntu 20.04 image with ronin gems installed.
+* [ronin:ubuntu] - a base ubuntu 20.04 image with [ronin gem] installed.
 * [ronin:lab] - like `ronin:ubuntu` but with additional tools installed.
 * [ronin:latest][ronin:lab] - alias for `ronin:lab`.
 
@@ -41,6 +41,7 @@ docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin
 [IRC](https://ronin-rb.dev/irc/)
 
 [ronin]: https://ronin-rb.dev/
+[ronin gem]: https://rubygems.org/gems/ronin
 
 [ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/main/ronin/Dockerfile.ubuntu
 [ronin:lab]: https://github.com/ronin-rb/docker/blob/main/ronin/Dockerfile.lab
