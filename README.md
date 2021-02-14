@@ -9,6 +9,12 @@ pre-installed.
 * [ronin:lab] - like `ronin:ubuntu` but with additional tools installed.
 * [ronin:latest][ronin:lab] - alias for `ronin:lab`.
 
+## Pull
+
+```shell
+docker pull roninrb/ronin
+```
+
 ## Build
 
 ```shell
