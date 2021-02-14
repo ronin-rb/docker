@@ -14,8 +14,10 @@ release:
 	docker login
 	docker tag ronin:ubuntu $(DOCKER_HUB)/ronin:ubuntu
 	docker tag ronin:lab $(DOCKER_HUB)/ronin:lab
+	docker tag ronin:latest $(DOCKER_HUB)/ronin:lab
 	docker push $(DOCKER_HUB)/ronin:ubuntu
 	docker push $(DOCKER_HUB)/ronin:lab
+	docker push $(DOCKER_HUB)/ronin:latest
 
 clean:
 	docker image rm -f ronin:lab ronin:ubuntu
