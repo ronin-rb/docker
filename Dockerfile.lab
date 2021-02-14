@@ -1,0 +1,20 @@
+FROM ronin:ubuntu
+
+LABEL maintainer="postmodern.mod3@gmail.com"
+
+# Re-add common core utils
+RUN apt-get install -qq -y tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git
+
+# Create the ronin user and home directory
+RUN useradd -m -s /bin/bash ronin && \
+    apt-get install -qq -y sudo && \
+    echo "ronin ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/ronin && \
+    chmod 0440 /etc/sudoers.d/ronin && \
+    usermod -aG sudo ronin && \
+    touch /home/ronin/.sudo_as_admin_successful && \
+    chown ronin:ronin /home/ronin/.sudo_as_admin_successful
+
+USER ronin
+WORKDIR /home/ronin
+
+CMD ["/bin/bash"]

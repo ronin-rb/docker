@@ -1,12 +1,13 @@
-LANG?=en_US.UTF-8
-TZ?=UTC
+IMAGES=ubuntu lab
 
-all: build run
+all: build
 
-build: Dockerfile
-	docker build --build-arg LANG=$(LANG) --build-arg TZ=$(TZ) -t ronin .
+build: ubuntu lab
 
-run: 
-	docker run --mount type=bind,source="$$HOME",target=/home/ronin -it ronin
+ubuntu: Dockerfile.ubuntu
+	docker build -t ronin:ubuntu -f Dockerfile.ubuntu .
 
-.PHONY: all build run
+lab: Dockerfile.lab
+	docker build -t ronin:lab -f Dockerfile.lab .
+
+.PHONY: all build ubuntu lab

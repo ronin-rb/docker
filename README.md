@@ -6,13 +6,13 @@ pre-installed.
 ## Build
 
 ```shell
-docker build -t ronin .
+make build
 ```
 
 ## Run (with home-dir)
 
 ```shell
-docker run -it --mount type=bind,source="$HOME",target=/home/ubuntu ronin:latest
+docker run -it --mount type=bind,source="$HOME",target=/home/ubuntu ronin
 ```
 
 ## Contact
