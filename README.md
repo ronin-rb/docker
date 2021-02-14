@@ -3,6 +3,11 @@
 This repository provides a `Dockerfile` to build an image with [ronin]
 pre-installed.
 
+## Images
+
+* `ronin:ubuntu` - A base ubuntu image with ronin gems installed.
+* `ronin:lab` - Like `ronin:ubuntu` but with additional tools installed.
+
 ## Build
 
 ```shell
