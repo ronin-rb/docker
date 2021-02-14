@@ -2,15 +2,13 @@ DOCKER_HUB=roninrb
 
 all: build
 
-build: ronin
+build: ubuntu lab
 
-ronin: ronin\:ubuntu ronin\:lab
+ubuntu: Dockerfile.ubuntu
+	docker build -t ronin:ubuntu -f Dockerfile.ubuntu .
 
-ronin\:ubuntu: ronin/Dockerfile.ubuntu
-	docker build -t ronin:ubuntu -f ronin/Dockerfile.ubuntu .
-
-ronin\:lab: ronin\:ubuntu ronin/Dockerfile.lab
-	docker build -t ronin:lab -f ronin/Dockerfile.lab .
+lab: ubuntu Dockerfile.lab
+	docker build -t ronin:lab -f Dockerfile.lab .
 
 release:
 	docker login
@@ -24,4 +22,4 @@ release:
 clean:
 	docker image rm -f ronin:lab ronin:ubuntu
 
-.PHONY: all build ronin ronin\:ubuntu ronin\:lab clean
+.PHONY: all build ubuntu lab clean
