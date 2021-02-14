@@ -3,30 +3,25 @@ FROM ubuntu:${UBUNTU_VERSION}
 
 LABEL maintainer="postmodern.mod3@gmail.com"
 
-# Set LANG
-ARG LANG=en_US.UTF-8
-ENV LANG=${LANG}
-ENV LANGUAGE=${LANG}
-ENV LC_ALL=${LANG}
-
-# Set TZ
-ARG TZ=UTC
-ENV TZ=${TZ}
-
 # Update apt
 RUN apt-get update -qq
 
 # Set the locales
+ENV LANG=en_US.UTF-8
 RUN apt-get install -qq -y locales && \
-    locale-gen "${LANG%.*}" "$LANG" && \
+    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    echo 'LANG="en_US.UTF-8"' > /etc/default/locale && \
     dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale
+    update-locale LANG=en_US.UTF-8
 
 # Set the timezone
-RUN apt-get install -qq -y tzdata && \
+ARG TZ=UTC
+RUN echo $TZ > /etc/timezone && \
+    apt-get update && apt-get install -y tzdata && \
+    rm /etc/localtime && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
-    echo $TZ > /etc/timezone && \
-    dpkg-reconfigure --frontend=noninteractive tzdata
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt-get clean
 
 # Install external dependencies
 RUN apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev
