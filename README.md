@@ -5,8 +5,8 @@ pre-installed.
 
 ## Images
 
-* [ronin:alpine] - a base alpine latest image with [ronin gem] installed.
-* [ronin:ubuntu] - a base ubuntu 20.04 image with [ronin gem] installed.
+* [ronin:alpine] - a base `alpine:latest` image with [ronin gem] installed.
+* [ronin:ubuntu] - a base `ubuntu:20.04` image with [ronin gem] installed.
 * [ronin:lab] - like `ronin:ubuntu` but with additional tools installed.
 * [ronin:latest][ronin:lab] - alias for `ronin:lab`.
 
