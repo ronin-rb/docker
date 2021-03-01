@@ -18,20 +18,28 @@ docker pull roninrb/ronin
 
 ## Build
 
+Build all images:
+
 ```shell
 make build
+```
+
+Build only one image:
+
+```shell
+make ronin:lab
 ```
 
 ## Run
 
 ```shell
-docker run -it ronin
+docker run -it ronin:lab
 ```
 
 With your home-dir mounted:
 
 ```shell
-docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin
+docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 ```
 
 ## Contact
