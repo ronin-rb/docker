@@ -26,6 +26,5 @@ RUN apt-get update -qq && \
     apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev && \
     apt-get clean -y && \
     gem install ronin --version ${RONIN_VERSION} && \
-    apt-get autoremove -y --purge gcc make && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
