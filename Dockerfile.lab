@@ -3,7 +3,6 @@ FROM ronin:ubuntu
 LABEL maintainer="postmodern.mod3@gmail.com"
 
 ARG USERNAME=ronin
-ARG HTTP_PROXY
 
 # Install common utils and create the user
 RUN apt-get update -qq && \
@@ -18,8 +17,5 @@ RUN apt-get update -qq && \
 
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
-
-ENV http_proxy=${HTTP_PROXY}
-ENV https_proxy=${HTTP_PROXY}
 
 CMD ["/bin/bash"]
