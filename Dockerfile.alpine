@@ -11,5 +11,7 @@ ARG TZ=UTC
 RUN apk update && apk upgrade && \
     apk add tzdata && \
     cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
-    apk add musl-dev gcc make ruby-full ruby-dev readline-dev sqlite-dev libxml2-dev && \
-    gem install ronin --version ${RONIN_VERSION}
+    apk add --no-cache readline sqlite libxml2 ruby-full && \
+    apk add --no-cache --virtual ruby-build-deps musl-dev gcc make readline-dev sqlite-dev libxml2-dev ruby-dev && \
+    gem install ronin --version ${RONIN_VERSION} && \
+    apk del ruby-build-deps
