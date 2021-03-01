@@ -14,10 +14,10 @@ RUN apt-get update && \
     echo 'LANG="${LANG}"' > /etc/default/locale && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8 && \
-    echo $TZ > /etc/timezone && \
+    echo ${TZ} > /etc/timezone && \
     apt-get install -y tzdata && \
     rm /etc/localtime && \
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
