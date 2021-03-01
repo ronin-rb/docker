@@ -6,14 +6,15 @@ ARG USERNAME=ronin
 
 # Install common utils and create the user
 RUN apt-get update -qq && \
-    apt-get install -qq -y sudo tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git && \
-    apt-get clean -y && \
+    apt-get install -qq -y sudo tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git build-essential && \
     useradd -m -s /bin/bash ${USERNAME} && \
     echo "${USERNAME} ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/ronin && \
     chmod 0440 /etc/sudoers.d/ronin && \
     usermod -aG sudo ${USERNAME} && \
     touch /home/${USERNAME}/.sudo_as_admin_successful && \
-    chown ${USERNAME}:${USERNAME} /home/${USERNAME}/.sudo_as_admin_successful
+    chown ${USERNAME}:${USERNAME} /home/${USERNAME}/.sudo_as_admin_successful && \
+    apt-get clean -y && \
+    rm -rf /var/lib/apt/lists/*
 
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}

@@ -1,10 +1,9 @@
 ARG UBUNTU_VERSION=20.04
 FROM ubuntu:${UBUNTU_VERSION}
 
-ARG RONIN_VERSION=1.5.1
-
 LABEL maintainer="postmodern.mod3@gmail.com"
-LABEL dev.ronin-rb.version=${RONIN_VERSION}
+
+ARG RONIN_VERSION=1.5.1
 
 ENV LANG=en_US.UTF-8
 ARG TZ=UTC
@@ -20,9 +19,13 @@ RUN apt-get update -qq && \
     rm /etc/localtime && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
-    apt-get clean -y
+    apt-get clean -y && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update -qq && \
     apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev && \
     apt-get clean -y && \
-    gem install ronin --version ${RONIN_VERSION}
+    gem install ronin --version ${RONIN_VERSION} && \
+    apt-get autoremove -y --purge gcc make && \
+    apt-get clean -y && \
+    rm -rf /var/lib/apt/lists/*
