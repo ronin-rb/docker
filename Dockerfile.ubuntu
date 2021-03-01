@@ -15,7 +15,7 @@ RUN apt-get update -qq && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8 && \
     echo $TZ > /etc/timezone && \
-    apt-get update -qq && apt-get install -y tzdata && \
+    apt-get install -y tzdata && \
     rm /etc/localtime && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
