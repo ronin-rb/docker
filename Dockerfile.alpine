@@ -9,5 +9,7 @@ ENV LANG=en_US.UTF-8
 ARG TZ=UTC
 
 RUN apk update && apk upgrade && \
+    apk add tzdata && \
+    cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
     apk add musl-dev gcc make ruby-full ruby-dev readline-dev sqlite-dev libxml2-dev && \
     gem install ronin --version ${RONIN_VERSION}
