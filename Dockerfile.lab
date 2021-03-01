@@ -2,18 +2,20 @@ FROM ronin:ubuntu
 
 LABEL maintainer="postmodern.mod3@gmail.com"
 
+ARG USERNAME=ronin
+
 # Install common utils and create the user
 RUN apt-get update -qq && \
     apt-get install -qq -y sudo tar zip vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl git && \
     apt-get clean && \
-    useradd -m -s /bin/bash ronin && \
-    echo "ronin ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/ronin && \
+    useradd -m -s /bin/bash ${USERNAME} && \
+    echo "${USERNAME} ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/ronin && \
     chmod 0440 /etc/sudoers.d/ronin && \
-    usermod -aG sudo ronin && \
-    touch /home/ronin/.sudo_as_admin_successful && \
-    chown ronin:ronin /home/ronin/.sudo_as_admin_successful
+    usermod -aG sudo ${USERNAME} && \
+    touch /home/${USERNAME}/.sudo_as_admin_successful && \
+    chown ${USERNAME}:${USERNAME} /home/${USERNAME}/.sudo_as_admin_successful
 
-USER ronin
-WORKDIR /home/ronin
+USER ${USERNAME}
+WORKDIR /home/${USERNAME}
 
 CMD ["/bin/bash"]
