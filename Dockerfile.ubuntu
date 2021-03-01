@@ -5,13 +5,13 @@ LABEL maintainer="postmodern.mod3@gmail.com"
 
 ARG RONIN_VERSION=1.5.1
 
-ENV LANG=en_US.UTF-8
+ARG LANG=en_US.UTF-8
 ARG TZ=UTC
 
-RUN apt-get update -qq && \
+RUN apt-get update && \
     apt-get install -qq -y locales && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    echo 'LANG="en_US.UTF-8"' > /etc/default/locale && \
+    echo 'LANG="${LANG}"' > /etc/default/locale && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8 && \
     echo $TZ > /etc/timezone && \
