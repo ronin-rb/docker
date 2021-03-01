@@ -3,29 +3,25 @@ FROM ubuntu:${UBUNTU_VERSION}
 
 LABEL maintainer="postmodern.mod3@gmail.com"
 
-# Update apt
-RUN apt-get update -qq
+ARG RONIN_VERSION=1.5.1
 
-# Set the locales
 ENV LANG=en_US.UTF-8
-RUN apt-get install -qq -y locales && \
+ARG TZ=UTC
+
+RUN apt-get update -qq && \
+    apt-get install -qq -y locales && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     echo 'LANG="en_US.UTF-8"' > /etc/default/locale && \
     dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale LANG=en_US.UTF-8
-
-# Set the timezone
-ARG TZ=UTC
-RUN echo $TZ > /etc/timezone && \
-    apt-get update && apt-get install -y tzdata && \
+    update-locale LANG=en_US.UTF-8 && \
+    echo $TZ > /etc/timezone && \
+    apt-get update -qq && apt-get install -y tzdata && \
     rm /etc/localtime && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
 
-# Install external dependencies
-RUN apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev
-
-# Install ronin
-ARG RONIN_VERSION=1.5.1
-RUN gem install ronin --version ${RONIN_VERSION}
+RUN apt-get update -qq && \
+    apt-get install -qq -y gcc make ruby-full libreadline-dev libsqlite3-dev libxml2-dev libxslt1-dev && \
+    apt-get clean && \
+    gem install ronin --version ${RONIN_VERSION}
