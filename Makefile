@@ -6,7 +6,7 @@ RONIN_VERSION?=1.5.1
 
 all: build
 
-build: $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab
+build: $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:alpine
 
 $(DOCKER_IMAGE)\:alpine: Dockerfile.alpine
 	docker build	-t $(DOCKER_IMAGE):alpine \
