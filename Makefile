@@ -34,9 +34,9 @@ build_lab: $(DOCKER_IMAGE)\:lab
 $(DOCKER_IMAGE)\:latest: $(DOCKER_IMAGE)\:lab
 	docker tag $(DOCKER_IMAGE):lab $(DOCKER_IMAGE):latest
 
-tag_latest: $(DOCKER_IMAGE)\:latest
+tag_latest: $(DOCKER_IMAGE)\:latest $(DOCKER_IMAGE)\:ubuntu
 
-release:
+release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab
 	docker login
 	docker tag $(DOCKER_IMAGE):alpine $(DOCKER_HUB)/$(DOCKER_IMAGE):alpine
 	docker tag $(DOCKER_IMAGE):ubuntu $(DOCKER_HUB)/$(DOCKER_IMAGE):ubuntu
