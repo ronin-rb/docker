@@ -17,6 +17,9 @@ $(DOCKER_IMAGE)\:alpine: Dockerfile.alpine
 
 build_alpine: $(DOCKER_IMAGE)\:alpine
 
+run_alpine: $(DOCKER_IMAGE)\:alpine
+	docker run -it $(DOCKER_IMAGE):alpine
+
 $(DOCKER_IMAGE)\:ubuntu: Dockerfile.ubuntu
 	docker build	-t $(DOCKER_IMAGE):ubuntu \
 			-f Dockerfile.ubuntu \
@@ -26,10 +29,16 @@ $(DOCKER_IMAGE)\:ubuntu: Dockerfile.ubuntu
 
 build_ubuntu: $(DOCKER_IMAGE)\:ubuntu
 
+run_ubuntu: $(DOCKER_IMAGE)\:ubuntu
+	docker run -it $(DOCKER_IMAGE):ubuntu
+
 $(DOCKER_IMAGE)\:lab: $(DOCKER_IMAGE)\:ubuntu Dockerfile.lab
 	docker build -t $(DOCKER_IMAGE):lab -f Dockerfile.lab .
 
 build_lab: $(DOCKER_IMAGE)\:lab
+
+run_lab: $(DOCKER_IMAGE)\:lab
+	docker run -it $(DOCKER_IMAGE):lab
 
 $(DOCKER_IMAGE)\:latest: $(DOCKER_IMAGE)\:lab
 	docker tag $(DOCKER_IMAGE):lab $(DOCKER_IMAGE):latest
@@ -50,4 +59,4 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab
 clean:
 	docker image rm -f $(DOCKER_IMAGE):{lab,ubuntu,latest}
 
-.PHONY: all build build_alpine build_ubuntu build_lab tag_latest $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest clean
+.PHONY: all build build_alpine run_alpine build_ubuntu run_ubuntu build_lab run_lab tag_latest $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest clean
