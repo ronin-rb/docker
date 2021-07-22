@@ -6,7 +6,7 @@ RONIN_VERSION?=1.5.1
 
 all: build
 
-build: $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:alpine
+build: build_ubuntu build_lab build_alpine
 
 $(DOCKER_IMAGE)\:alpine: Dockerfile.alpine
 	docker build	-t $(DOCKER_IMAGE):alpine \
@@ -15,7 +15,7 @@ $(DOCKER_IMAGE)\:alpine: Dockerfile.alpine
 			--build-arg RONIN_VERSION=$(RONIN_VERSION) \
 			.
 
-alpine: $(DOCKER_IMAGE)\:alpine
+build_alpine: $(DOCKER_IMAGE)\:alpine
 
 $(DOCKER_IMAGE)\:ubuntu: Dockerfile.ubuntu
 	docker build	-t $(DOCKER_IMAGE):ubuntu \
@@ -24,17 +24,17 @@ $(DOCKER_IMAGE)\:ubuntu: Dockerfile.ubuntu
 			--build-arg RONIN_VERSION=$(RONIN_VERSION) \
 			.
 
-ubuntu: $(DOCKER_IMAGE)\:ubuntu
+build_ubuntu: $(DOCKER_IMAGE)\:ubuntu
 
 $(DOCKER_IMAGE)\:lab: $(DOCKER_IMAGE)\:ubuntu Dockerfile.lab
 	docker build -t $(DOCKER_IMAGE):lab -f Dockerfile.lab .
 
-lab: $(DOCKER_IMAGE)\:lab
+build_lab: $(DOCKER_IMAGE)\:lab
 
 $(DOCKER_IMAGE)\:latest: $(DOCKER_IMAGE)\:lab
 	docker tag $(DOCKER_IMAGE):lab $(DOCKER_IMAGE):latest
 
-latest: $(DOCKER_IMAGE)\:latest
+tag_latest: $(DOCKER_IMAGE)\:latest
 
 release:
 	docker login
@@ -50,4 +50,4 @@ release:
 clean:
 	docker image rm -f $(DOCKER_IMAGE):{lab,ubuntu,latest}
 
-.PHONY: all build alpine ubuntu lab latest $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest clean
+.PHONY: all build build_alpine build_ubuntu build_lab tag_latest $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest clean
