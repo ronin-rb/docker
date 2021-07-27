@@ -1,5 +1,11 @@
 # Docker
 
+* [Website](https://ronin-rb.dev)
+* [Issues](https://github.com/ronin-rb/docker/issues)
+* [Slack](https://ronin-rb.slack.com) |
+  [Discord](https://discord.gg/6WAb3PsVX9) |
+  [Twitter](https://twitter.com/ronin_rb)
+
 This repository provides `Dockerfile`s to build images with the [ronin] gems
 pre-installed.
 
@@ -41,12 +47,6 @@ With your home-dir mounted:
 ```shell
 docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 ```
-
-## Contact
-
-[Slack](https://ronin-rb.slack.com) |
-[Discord](https://discord.gg/6WAb3PsVX9) |
-[Twitter](https://twitter.com/ronin_rb)
 
 [ronin]: https://ronin-rb.dev/
 [ronin gem]: https://rubygems.org/gems/ronin
