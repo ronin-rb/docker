@@ -46,8 +46,7 @@ docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 
 [Slack](https://ronin-rb.slack.com) |
 [Discord](https://discord.gg/6WAb3PsVX9) |
-[Twitter](https://twitter.com/ronin_rb) |
-[IRC](https://ronin-rb.dev/irc/)
+[Twitter](https://twitter.com/ronin_rb)
 
 [ronin]: https://ronin-rb.dev/
 [ronin gem]: https://rubygems.org/gems/ronin
