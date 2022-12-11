@@ -3,8 +3,7 @@
 * [Website](https://ronin-rb.dev)
 * [Issues](https://github.com/ronin-rb/docker/issues)
 * [DockerHub](https://hub.docker.com/r/roninrb/ronin)
-* [Slack](https://ronin-rb.slack.com) |
-  [Discord](https://discord.gg/6WAb3PsVX9) |
+* [Discord](https://discord.gg/6WAb3PsVX9) |
   [Twitter](https://twitter.com/ronin_rb)
 
 This repository provides `Dockerfile`s to build images with the [ronin] gems
