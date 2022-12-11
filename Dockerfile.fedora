@@ -1,0 +1,20 @@
+ARG FEDORA_VERSION=latest
+FROM fedora:${FEDORA_VERSION}
+
+LABEL maintainer="postmodern.mod3@gmail.com"
+
+ARG RONIN_VERSION=1.5.1
+
+ENV LANG=en_US.UTF-8
+ARG TZ=UTC
+
+RUN echo "LANG=$LANG" > /etc/locale.conf \
+    echo "$TZ" > /etc/timezone && \
+    dnf update -y && \
+    dnf install -y gcc make ruby-devel readline-devel sqlite-devel libxml2-devel libxslt-devel && \
+    dnf clean all && \
+    gem install ronin --version ${RONIN_VERSION} && \
+    dnf remove -y gcc make && \
+    dnf clean all
+
+ENTRYPOINT /bin/bash

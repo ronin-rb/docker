@@ -13,6 +13,7 @@ pre-installed.
 ## Images
 
 * [ronin:alpine] - a base `alpine:latest` image with [ronin gem] installed.
+* [ronin:fedora] - a base `fedora:latest` image with [ronin gem] installed.
 * [ronin:ubuntu] - a base `ubuntu:20.04` image with [ronin gem] installed.
 * [ronin:lab] - like `ronin:ubuntu` but with additional tools installed.
 * [ronin:latest][ronin:lab] - alias for `ronin:lab`.
@@ -53,5 +54,6 @@ docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 [ronin gem]: https://rubygems.org/gems/ronin
 
 [ronin:alpine]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.alpine
+[ronin:fedora]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.fedora
 [ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.ubuntu
 [ronin:lab]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.lab
