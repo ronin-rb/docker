@@ -3,7 +3,7 @@ FROM alpine:${ALPINE_VERSION}
 
 LABEL maintainer="postmodern.mod3@gmail.com"
 
-ARG RONIN_VERSION=1.5.1
+ARG RONIN_VERSION=2.0.0.beta1
 
 ENV LANG=en_US.UTF-8
 ARG TZ=UTC
