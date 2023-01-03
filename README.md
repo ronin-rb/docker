@@ -12,12 +12,13 @@ pre-installed.
 
 ## What is Ronin?
 
-Ronin is a Ruby toolkit for security research and development. Ronin contains
-many different CLI commands and Ruby libraries for a variety of security tasks,
-such as encoding/decoding data, filter IPs/hosts/URLs, querying ASNs, querying
-DNS, HTTP, scanning for web vulnerabilities, spidering websites, running
-exploits, generating new exploits, managing local databases, fuzzing data, and
-much more.
+[Ronin][ronin] is a [Ruby] toolkit for security research and development.
+Ronin contains many different [CLI commands][Synopsis] and
+[Ruby libraries][GitHub] for a variety of security tasks, such as
+encoding/decoding data, filter IPs/hosts/URLs, querying ASNs, querying DNS,
+HTTP, scanning for web vulnerabilities, spidering websites, install 3rd party
+repositories of exploits and/or payloads, run exploits, generating new exploits,
+managing local databases, fuzzing data, and much more.
 
 ## Images
 
@@ -63,6 +64,8 @@ docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 ```
 
 [ronin]: https://ronin-rb.dev/
+[Synopsis]: https://github.com/ronin-rb/ronin#synopsis
+[GitHub]: https://github.com/ronin-rb/
 [ronin gem]: https://rubygems.org/gems/ronin
 
 [ronin:alpine]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.alpine
