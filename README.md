@@ -64,6 +64,7 @@ docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 ```
 
 [ronin]: https://ronin-rb.dev/
+[Ruby]: https://www.ruby-lang.org/
 [Synopsis]: https://github.com/ronin-rb/ronin#synopsis
 [GitHub]: https://github.com/ronin-rb/
 [ronin gem]: https://rubygems.org/gems/ronin
