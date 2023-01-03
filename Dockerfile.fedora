@@ -6,7 +6,7 @@ LABEL maintainer="postmodern.mod3@gmail.com"
 ARG RONIN_VERSION=2.0.0.beta1
 
 ENV LANG=en_US.UTF-8
-ARG TZ=UTC
+ENV TZ=UTC
 
 RUN echo "LANG=$LANG" > /etc/locale.conf \
     echo "$TZ" > /etc/timezone && \
