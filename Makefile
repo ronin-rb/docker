@@ -7,7 +7,7 @@ RONIN_VERSION?=2.0.0.beta1
 
 all: build
 
-build: build_ubuntu build_lab build_alpine
+build: build_ubuntu build_alpine build_fedora build_lab
 
 $(DOCKER_IMAGE)\:alpine: Dockerfile.alpine
 	docker build	-t $(DOCKER_IMAGE):$(RONIN_VERSION)-alpine \
