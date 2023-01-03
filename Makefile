@@ -49,7 +49,8 @@ run_ubuntu: $(DOCKER_IMAGE)\:ubuntu
 	docker run -it $(DOCKER_IMAGE):ubuntu
 
 $(DOCKER_IMAGE)\:lab: $(DOCKER_IMAGE)\:ubuntu Dockerfile.lab
-	docker build -t $(DOCKER_IMAGE):lab -f Dockerfile.lab .
+	docker build -t $(DOCKER_IMAGE):$(RONIN_VERSION)-lab -f Dockerfile.lab .
+	docker tag $(DOCKER_IMAGE):$(RONIN_VERSION)-lab $(DOCKER_IMAGE):lab
 
 build_lab: $(DOCKER_IMAGE)\:lab
 
