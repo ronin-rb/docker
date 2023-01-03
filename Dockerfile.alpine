@@ -10,7 +10,7 @@ ENV TZ=UTC
 
 RUN apk update && apk upgrade && \
     apk add tzdata && \
-    cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
+    cp /usr/share/zoneinfo/$TZ /etc/localtime && \
     apk add --no-cache readline-dev sqlite-dev libxml2-dev ruby-full ruby-dev && \
     apk add --no-cache --virtual ruby-build-deps musl-dev gcc make && \
     gem install ronin --version ${RONIN_VERSION} && \
