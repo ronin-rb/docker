@@ -12,11 +12,14 @@ pre-installed.
 
 ## Images
 
-* [ronin:alpine] - a base `alpine:latest` image with [ronin gem] installed.
-* [ronin:fedora] - a base `fedora:latest` image with [ronin gem] installed.
-* [ronin:ubuntu] - a base `ubuntu:20.04` image with [ronin gem] installed.
-* [ronin:lab] - like `ronin:ubuntu` but with additional tools installed.
-* [ronin:latest][ronin:lab] - alias for `ronin:lab`.
+* [ronin:2.0.0.beta1-ubuntu, ronin:ubuntu, ronin:latest][ronin:ubuntu] -
+  a base `ubuntu:22.04` image with [ronin gem] installed.
+* [ronin:2.0.0.beta1-alpine, ronin:alpine][ronin:alpine] -
+  a base `alpine:latest` image with [ronin gem] installed.
+* [ronin:2.0.0.beta1-fedora, ronin:fedora][ronin:fedora] -
+  a base `fedora:latest` image with [ronin gem] installed.
+* [ronin:2.0.0.beta1-lab, ronin:lab][ronin:lab] -
+  similar to [ronin:ubuntu] but with additional tools installed.
 
 ## Pull
 
