@@ -15,8 +15,8 @@ This repository provides `Dockerfile`s to build images with the
 ## What is Ronin?
 
 [Ronin][website] is a free and Open Source [Ruby] toolkit for security research
-and development. Ronin contains many different [CLI commands][ronin-snopsis] and
-[Ruby libraries][ronin-rb] for a variety of security tasks, such as
+and development. Ronin contains many different [CLI commands][ronin-synopsis]
+and [Ruby libraries][ronin-rb] for a variety of security tasks, such as
 encoding/decoding data, filter IPs/hosts/URLs, querying ASNs, querying DNS,
 HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
 [spidering websites][ronin-web-spider],
