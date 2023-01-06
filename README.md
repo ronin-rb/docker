@@ -7,18 +7,48 @@
   [Twitter](https://twitter.com/ronin_rb) |
   [Mastodon](https://infosec.exchange/@ronin_rb)
 
-This repository provides `Dockerfile`s to build images with the [ronin] gems
-pre-installed.
+This repository provides `Dockerfile`s to build images with the
+[ronin][ronin-rb] gems pre-installed.
+
+[ronin-rb]: https://github.com/ronin-rb/
 
 ## What is Ronin?
 
-[Ronin][ronin] is a free and Open Source [Ruby] toolkit for security research
-and development. Ronin contains many different [CLI commands][Synopsis] and
-[Ruby libraries][GitHub] for a variety of security tasks, such as
+[Ronin][website] is a free and Open Source [Ruby] toolkit for security research
+and development. Ronin contains many different [CLI commands][ronin-snopsis] and
+[Ruby libraries][ronin-rb] for a variety of security tasks, such as
 encoding/decoding data, filter IPs/hosts/URLs, querying ASNs, querying DNS,
-HTTP, scanning for web vulnerabilities, spidering websites, install 3rd party
-repositories of exploits and/or payloads, run exploits, generating new exploits,
-managing local databases, fuzzing data, and much more.
+HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
+[spidering websites][ronin-web-spider],
+[install 3rd party repositories][ronin-repos-synopsis] of
+[exploits][ronin-exploits] and/or
+[payloads][ronin-payloads], [run exploits][ronin-exploits-synopsis],
+[write new exploits][ronin-exploits-examples],
+[managing local databases][ronin-db-synopsis],
+[fuzzing data][ronin-fuzzer], and much more.
+
+[website]: https://ronin-rb.dev/
+[ronin]: https://github.com/ronin-rb/ronin#readme
+[ronin-synopsis]: https://github.com/ronin-rb/ronin#synopsis
+[ronin-support]: https://github.com/ronin-rb/ronin-support#readme
+[ronin-repos]: https://github.com/ronin-rb/ronin-repos#readme
+[ronin-repos-synopsis]: https://github.com/ronin-rb/ronin-repos#synopsis
+[ronin-core]: https://github.com/ronin-rb/ronin-core#readme
+[ronin-db]: https://github.com/ronin-rb/ronin-db#readme
+[ronin-db-synopsis]: https://github.com/ronin-rb/ronin-db#synopsis
+[ronin-fuzzer]: https://github.com/ronin-rb/ronin-fuzzer#readme
+[ronin-web]: https://github.com/ronin-rb/ronin-web#readme
+[ronin-web-server]: https://github.com/ronin-rb/ronin-web-server#readme
+[ronin-web-spider]: https://github.com/ronin-rb/ronin-web-spider#readme
+[ronin-web-user_agents]: https://github.com/ronin-rb/ronin-web-user_agents#readme
+[ronin-code-asm]: https://github.com/ronin-rb/ronin-code-asm#readme
+[ronin-code-sql]: https://github.com/ronin-rb/ronin-code-sql#readme
+[ronin-payloads]: https://github.com/ronin-rb/ronin-payloads#readme
+[ronin-exploits]: https://github.com/ronin-rb/ronin-exploits#readme
+[ronin-exploits-synopsis]: https://github.com/ronin-rb/ronin-exploits#synopsis
+[ronin-exploits-examples]: https://github.com/ronin-rb/ronin-exploits#examples
+[ronin-vulns]: https://github.com/ronin-rb/ronin-vulns#readme
+[ronin-vulns-synopsis]: https://github.com/ronin-rb/ronin-vulns#synopsis
 
 ## Images
 
@@ -30,6 +60,13 @@ managing local databases, fuzzing data, and much more.
   a base `fedora:latest` image with [ronin gem] installed.
 * [ronin:2.0.0.beta1-lab, ronin:lab][ronin:lab] -
   similar to [ronin:ubuntu] but with additional tools installed.
+
+[ronin:alpine]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.alpine
+[ronin:fedora]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.fedora
+[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.ubuntu
+[ronin:lab]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.lab
+
+[ronin gem]: https://rubygems.org/gems/ronin
 
 ## Pull
 
@@ -62,14 +99,3 @@ With your home-dir mounted:
 ```shell
 docker run -it --mount type=bind,source="$HOME",target=/home/ronin ronin:lab
 ```
-
-[ronin]: https://ronin-rb.dev/
-[Ruby]: https://www.ruby-lang.org/
-[Synopsis]: https://github.com/ronin-rb/ronin#synopsis
-[GitHub]: https://github.com/ronin-rb/
-[ronin gem]: https://rubygems.org/gems/ronin
-
-[ronin:alpine]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.alpine
-[ronin:fedora]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.fedora
-[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.ubuntu
-[ronin:lab]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.lab
