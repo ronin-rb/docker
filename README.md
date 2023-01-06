@@ -12,8 +12,8 @@ pre-installed.
 
 ## What is Ronin?
 
-[Ronin][ronin] is a [Ruby] toolkit for security research and development.
-Ronin contains many different [CLI commands][Synopsis] and
+[Ronin][ronin] is a free and Open Source [Ruby] toolkit for security research
+and development. Ronin contains many different [CLI commands][Synopsis] and
 [Ruby libraries][GitHub] for a variety of security tasks, such as
 encoding/decoding data, filter IPs/hosts/URLs, querying ASNs, querying DNS,
 HTTP, scanning for web vulnerabilities, spidering websites, install 3rd party
