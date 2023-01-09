@@ -80,6 +80,7 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):ubuntu
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):lab
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):latest
+	git tag $(RONIN_VERSION)
 
 clean:
 	docker image rm -f $(DOCKER_IMAGE):{$(RONIN_VERSION)-,}{fedora,ubuntu,lab,latest}
