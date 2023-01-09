@@ -14,4 +14,4 @@ RUN apk update && apk upgrade && \
     apk add --no-cache readline-dev sqlite-dev libxml2-dev ruby-full ruby-dev && \
     apk add --no-cache --virtual ruby-build-deps musl-dev gcc make && \
     gem install ronin --version "${RONIN_VERSION}" && \
-    apk del ruby-build-deps
+    apk del ruby-build-deps gcc make
