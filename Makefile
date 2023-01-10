@@ -7,8 +7,6 @@ RONIN_VERSION?=2.0.0.beta2
 
 all: build
 
-build: build_ubuntu build_alpine build_fedora build_lab
-
 $(DOCKER_IMAGE)\:alpine: Dockerfile.alpine
 	docker build	-t $(DOCKER_IMAGE):$(RONIN_VERSION)-alpine \
 			-f Dockerfile.alpine \
@@ -59,6 +57,8 @@ run_lab: $(DOCKER_IMAGE)\:lab
 
 $(DOCKER_IMAGE)\:latest: $(DOCKER_IMAGE)\:ubuntu
 	docker tag $(DOCKER_IMAGE):ubuntu $(DOCKER_IMAGE):latest
+
+build: build_ubuntu build_alpine build_fedora build_lab
 
 release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest
 	docker login
