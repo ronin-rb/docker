@@ -11,7 +11,7 @@ ENV TZ=UTC
 RUN echo "LANG=$LANG" > /etc/locale.conf \
     echo "$TZ" > /etc/timezone && \
     dnf update -y && \
-    dnf install -y gcc make ruby-devel ruby-bundled-gems rubygem-rake readline-devel sqlite-devel libxml2-devel libxslt-devel && \
+    dnf install -y gcc make ruby-devel ruby-bundled-gems rubygem-rake readline-devel sqlite-devel && \
     dnf clean all && \
     gem install ronin --version "${RONIN_VERSION}" && \
     dnf remove -y gcc make && \
