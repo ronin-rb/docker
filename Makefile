@@ -78,6 +78,7 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):ubuntu
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):lab
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):latest
+	docker logout
 	git tag v$(RONIN_VERSION)
 
 clean:
