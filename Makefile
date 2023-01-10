@@ -60,8 +60,6 @@ run_lab: $(DOCKER_IMAGE)\:lab
 $(DOCKER_IMAGE)\:latest: $(DOCKER_IMAGE)\:ubuntu
 	docker tag $(DOCKER_IMAGE):ubuntu $(DOCKER_IMAGE):latest
 
-tag_latest: $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:latest
-
 release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu $(DOCKER_IMAGE)\:lab $(DOCKER_IMAGE)\:latest
 	docker login
 	docker tag $(DOCKER_IMAGE):$(RONIN_VERSION)-alpine $(DOCKER_HUB)/$(DOCKER_IMAGE):$(RONIN_VERSION)-alpine
