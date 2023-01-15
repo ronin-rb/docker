@@ -27,6 +27,7 @@ HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
 [managing local databases][ronin-db-synopsis],
 [fuzzing data][ronin-fuzzer], and much more.
 
+[Ruby]: https://www.ruby-lang.org/
 [website]: https://ronin-rb.dev/
 [ronin]: https://github.com/ronin-rb/ronin#readme
 [ronin-synopsis]: https://github.com/ronin-rb/ronin#synopsis
