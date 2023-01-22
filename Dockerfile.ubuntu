@@ -3,7 +3,7 @@ FROM ubuntu:${UBUNTU_VERSION}
 
 LABEL maintainer="postmodern.mod3@gmail.com"
 
-ARG RONIN_VERSION=2.0.0.beta4
+ARG RONIN_VERSION=2.0.0.beta5
 
 ENV LANG=en_US.UTF-8
 ENV TZ=UTC
