@@ -93,6 +93,7 @@ make ronin:lab
 
 ```shell
 docker run -it ronin:lab
+ronin@6879ae803600:~$ ronin help
 ```
 
 With your home-dir mounted:
