@@ -81,6 +81,8 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):latest
 	docker logout
 	git tag v$(TAG_VERSION)
+	git push origin
+	git push --tags origin
 
 clean:
 	docker image rm -f $(DOCKER_IMAGE):{$(TAG_VERSION)-,}{fedora,ubuntu,lab,latest}
