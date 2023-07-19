@@ -1,4 +1,4 @@
-ARG UBUNTU_VERSION=20.04
+ARG UBUNTU_VERSION=latest
 FROM ubuntu:${UBUNTU_VERSION}
 
 LABEL maintainer="postmodern.mod3@gmail.com"
