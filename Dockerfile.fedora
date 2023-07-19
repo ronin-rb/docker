@@ -13,7 +13,7 @@ RUN echo "LANG=$LANG" > /etc/locale.conf \
     dnf update -y && \
     dnf install -y gcc gcc-c++ make ruby-devel ruby-bundled-gems rubygem-rake readline-devel sqlite-devel && \
     dnf clean all && \
-    gem install ronin --version "${RONIN_VERSION}" && \
+    gem install ronin ${RONIN_VERSION:+--version "${RONIN_VERSION}"} && \
     dnf remove -y gcc gcc-c++ make && \
     dnf clean all
 

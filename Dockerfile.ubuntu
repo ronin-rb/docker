@@ -3,7 +3,7 @@ FROM ubuntu:${UBUNTU_VERSION}
 
 LABEL maintainer="postmodern.mod3@gmail.com"
 
-ARG RONIN_VERSION=2.0.0
+ARG RONIN_VERSION
 
 ENV LANG=en_US.UTF-8
 ENV TZ=UTC
@@ -21,7 +21,7 @@ RUN apt-get update && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get install -qq -y gcc g++ make ruby-full libreadline-dev libsqlite3-dev && \
     apt-get clean -y && \
-    gem install ronin --version "${RONIN_VERSION}" && \
+    gem install ronin ${RONIN_VERSION:+--version "${RONIN_VERSION}"} && \
     apt-get remove -y gcc g++ make && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*

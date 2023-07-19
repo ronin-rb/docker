@@ -13,5 +13,5 @@ RUN apk update && apk upgrade && \
     cp "/usr/share/zoneinfo/$TZ" /etc/localtime && \
     apk add --no-cache readline-dev sqlite-dev ruby-full ruby-dev && \
     apk add --no-cache --virtual ruby-build-deps musl-dev gcc g++ make && \
-    gem install ronin --version "${RONIN_VERSION}" && \
+    gem install ronin ${RONIN_VERSION:+--version "${RONIN_VERSION}"} && \
     apk del ruby-build-deps gcc g++ make
