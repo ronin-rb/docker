@@ -4,7 +4,6 @@
 * [Issues](https://github.com/ronin-rb/docker/issues)
 * [DockerHub](https://hub.docker.com/r/roninrb/ronin)
 * [Discord](https://discord.gg/6WAb3PsVX9) |
-  [Twitter](https://twitter.com/ronin_rb) |
   [Mastodon](https://infosec.exchange/@ronin_rb)
 
 This repository provides `Dockerfile`s to build images with the
