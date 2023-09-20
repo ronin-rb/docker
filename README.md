@@ -52,13 +52,13 @@ HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
 
 ## Images
 
-* [ronin:2.0.4-ubuntu, ronin:ubuntu, ronin:latest][ronin:ubuntu] -
+* [ronin:2.0.5-ubuntu, ronin:ubuntu, ronin:latest][ronin:ubuntu] -
   a base `ubuntu:22.04` image with [ronin gem] installed.
-* [ronin:2.0.4-alpine, ronin:alpine][ronin:alpine] -
+* [ronin:2.0.5-alpine, ronin:alpine][ronin:alpine] -
   a base `alpine:latest` image with [ronin gem] installed.
-* [ronin:2.0.4-fedora, ronin:fedora][ronin:fedora] -
+* [ronin:2.0.5-fedora, ronin:fedora][ronin:fedora] -
   a base `fedora:latest` image with [ronin gem] installed.
-* [ronin:2.0.4-lab, ronin:lab][ronin:lab] -
+* [ronin:2.0.5-lab, ronin:lab][ronin:lab] -
   similar to [ronin:ubuntu] but with additional tools installed.
 
 [ronin:alpine]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.alpine
