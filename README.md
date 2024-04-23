@@ -61,10 +61,10 @@ HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
 * [ronin:2.0.5.2-lab, ronin:lab][ronin:lab] -
   similar to [ronin:ubuntu] but with additional tools installed.
 
-[ronin:alpine]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.alpine
-[ronin:fedora]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.fedora
-[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.ubuntu
-[ronin:lab]: https://github.com/ronin-rb/docker/blob/main/Dockerfile.lab
+[ronin:alpine]: https://github.com/ronin-rb/docker/blob/v2.0.5.2/Dockerfile.alpine
+[ronin:fedora]: https://github.com/ronin-rb/docker/blob/v2.0.5.2/Dockerfile.fedora
+[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/v2.0.5.2/Dockerfile.ubuntu
+[ronin:lab]: https://github.com/ronin-rb/docker/blob/v2.0.5.2/Dockerfile.lab
 
 [ronin gem]: https://rubygems.org/gems/ronin
 
