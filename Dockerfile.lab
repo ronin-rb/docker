@@ -6,7 +6,7 @@ ARG USERNAME=ronin
 
 # Install common utils and create the user
 RUN apt-get update -qq && \
-    apt-get install -qq -y sudo tar bzip2 vim netstat-nat net-tools iputils-ping traceroute host whois netcat wget curl build-essential && \
+    apt-get install -qq -y sudo tar bzip2 vim netstat-nat net-tools iputils-ping traceroute host whois netcat-traditional ncat curl build-essential && \
     useradd -m -s /bin/bash "${USERNAME}" && \
     echo "${USERNAME} ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/ronin && \
     chmod 0440 /etc/sudoers.d/ronin && \
