@@ -67,10 +67,12 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu
 	docker tag $(DOCKER_IMAGE):$(TAG_VERSION)-fedora $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-fedora
 	docker tag $(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu
 	docker tag $(DOCKER_IMAGE):$(TAG_VERSION)-lab $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-lab
+	docker tag $(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-alpine
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-fedora
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-lab
+	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)
 	if [[ ! "${RONIN_VERSION}" == *rc* ]] && \
 	   [[ ! "${RONIN_VERSION}" == *pre* ]] && \
 	   [[ ! "${RONIN_VERSION}" == *beta* ]] && \
