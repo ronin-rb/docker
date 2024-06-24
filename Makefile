@@ -68,6 +68,7 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu
 	docker tag $(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu
 	docker tag $(DOCKER_IMAGE):$(TAG_VERSION)-lab $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-lab
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-alpine
+	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-fedora
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu
 	docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):$(TAG_VERSION)-lab
 	if [[ ! "${RONIN_VERSION}" == *rc* ]] && \
@@ -80,6 +81,7 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu
 		docker tag $(DOCKER_IMAGE):lab $(DOCKER_HUB)/$(DOCKER_IMAGE):lab; \
 		docker tag $(DOCKER_IMAGE):latest $(DOCKER_HUB)/$(DOCKER_IMAGE):latest; \
 		docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):alpine; \
+		docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):fedora; \
 		docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):ubuntu; \
 		docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):lab; \
 		docker push $(DOCKER_HUB)/$(DOCKER_IMAGE):latest; \
