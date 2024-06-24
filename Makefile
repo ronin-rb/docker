@@ -19,7 +19,7 @@ $(DOCKER_IMAGE)\:alpine: Dockerfile.alpine
 build_alpine: $(DOCKER_IMAGE)\:alpine
 
 run_alpine: $(DOCKER_IMAGE)\:alpine
-	docker run -it $(DOCKER_IMAGE):alpine
+	docker run --rm -it $(DOCKER_IMAGE):alpine
 
 $(DOCKER_IMAGE)\:fedora: Dockerfile.fedora
 	docker build	-t $(DOCKER_IMAGE):$(TAG_VERSION)-fedora \
@@ -32,7 +32,7 @@ $(DOCKER_IMAGE)\:fedora: Dockerfile.fedora
 build_fedora: $(DOCKER_IMAGE)\:fedora
 
 run_fedora: $(DOCKER_IMAGE)\:fedora
-	docker run -it $(DOCKER_IMAGE):fedora
+	docker run --rm -it $(DOCKER_IMAGE):fedora
 
 $(DOCKER_IMAGE)\:ubuntu: Dockerfile.ubuntu
 	docker build	-t $(DOCKER_IMAGE):$(TAG_VERSION)-ubuntu \
@@ -45,7 +45,7 @@ $(DOCKER_IMAGE)\:ubuntu: Dockerfile.ubuntu
 build_ubuntu: $(DOCKER_IMAGE)\:ubuntu
 
 run_ubuntu: $(DOCKER_IMAGE)\:ubuntu
-	docker run -it $(DOCKER_IMAGE):ubuntu
+	docker run --rm -it $(DOCKER_IMAGE):ubuntu
 
 $(DOCKER_IMAGE)\:lab: $(DOCKER_IMAGE)\:ubuntu Dockerfile.lab
 	docker build -t $(DOCKER_IMAGE):$(TAG_VERSION)-lab -f Dockerfile.lab .
@@ -54,7 +54,7 @@ $(DOCKER_IMAGE)\:lab: $(DOCKER_IMAGE)\:ubuntu Dockerfile.lab
 build_lab: $(DOCKER_IMAGE)\:lab
 
 run_lab: $(DOCKER_IMAGE)\:lab
-	docker run -it $(DOCKER_IMAGE):lab
+	docker run --rm -it $(DOCKER_IMAGE):lab
 
 $(DOCKER_IMAGE)\:latest: $(DOCKER_IMAGE)\:ubuntu
 	docker tag $(DOCKER_IMAGE):ubuntu $(DOCKER_IMAGE):latest
