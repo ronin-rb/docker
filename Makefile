@@ -88,7 +88,7 @@ release: $(DOCKER_IMAGE)\:alpine $(DOCKER_IMAGE)\:fedora $(DOCKER_IMAGE)\:ubuntu
 	fi
 	docker logout
 	git tag v$(TAG_VERSION)
-	git push origin
+	git push origin $(git branch --show)
 	git push --tags origin
 
 clean:
