@@ -24,7 +24,8 @@ HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
 [payloads][ronin-payloads], [run exploits][ronin-exploits-synopsis],
 [write new exploits][ronin-exploits-examples],
 [managing local databases][ronin-db-synopsis],
-[fuzzing data][ronin-fuzzer], and much more.
+[fuzzing data][ronin-fuzzer],
+[performing recon][ronin-recon-synopsis], and much more.
 
 [Ruby]: https://www.ruby-lang.org/
 [website]: https://ronin-rb.dev/
@@ -49,6 +50,8 @@ HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
 [ronin-exploits-examples]: https://github.com/ronin-rb/ronin-exploits#examples
 [ronin-vulns]: https://github.com/ronin-rb/ronin-vulns#readme
 [ronin-vulns-synopsis]: https://github.com/ronin-rb/ronin-vulns#synopsis
+[ronin-recon]: https://github.com/ronin-rb/ronin-recon#readme
+[ronin-recon-synopsis]: https://github.com/ronin-rb/ronin-recon#synopsis
 
 ## Images
 
