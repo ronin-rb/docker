@@ -55,19 +55,19 @@ HTTP, [scanning for web vulnerabilities][ronin-vulns-synopsis],
 
 ## Images
 
-* [ronin:2.0.5.3-ubuntu, ronin:ubuntu, ronin:latest][ronin:ubuntu] -
+* [ronin:2.1.0-ubuntu, ronin:ubuntu, ronin:latest][ronin:ubuntu] -
   a base `ubuntu:22.04` image with [ronin gem] installed.
-* [ronin:2.0.5.3-alpine, ronin:alpine][ronin:alpine] -
+* [ronin:2.1.0-alpine, ronin:alpine][ronin:alpine] -
   a base `alpine:latest` image with [ronin gem] installed.
-* [ronin:2.0.5.3-fedora, ronin:fedora][ronin:fedora] -
+* [ronin:2.1.0-fedora, ronin:fedora][ronin:fedora] -
   a base `fedora:latest` image with [ronin gem] installed.
-* [ronin:2.0.5.3-lab, ronin:lab][ronin:lab] -
+* [ronin:2.1.0-lab, ronin:lab][ronin:lab] -
   similar to [ronin:ubuntu] but with additional tools installed.
 
-[ronin:alpine]: https://github.com/ronin-rb/docker/blob/v2.0.5.3/Dockerfile.alpine
-[ronin:fedora]: https://github.com/ronin-rb/docker/blob/v2.0.5.3/Dockerfile.fedora
-[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/v2.0.5.3/Dockerfile.ubuntu
-[ronin:lab]: https://github.com/ronin-rb/docker/blob/v2.0.5.3/Dockerfile.lab
+[ronin:alpine]: https://github.com/ronin-rb/docker/blob/v2.1.0/Dockerfile.alpine
+[ronin:fedora]: https://github.com/ronin-rb/docker/blob/v2.1.0/Dockerfile.fedora
+[ronin:ubuntu]: https://github.com/ronin-rb/docker/blob/v2.1.0/Dockerfile.ubuntu
+[ronin:lab]: https://github.com/ronin-rb/docker/blob/v2.1.0/Dockerfile.lab
 
 [ronin gem]: https://rubygems.org/gems/ronin
 
